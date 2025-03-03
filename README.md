@@ -17,7 +17,19 @@ Backend para el sistema Close AI, una aplicación para análisis y comparación 
 - Python 3.9+ (importante: no es compatible con Python 2.7)
 - Docker y Docker Compose
 
-## Instalación
+## Instalación y Ejecución
+
+Para una guía detallada sobre cómo configurar y ejecutar el backend de manera segura, consulta el archivo [GUIA_EJECUCION.md](GUIA_EJECUCION.md).
+
+Esta guía incluye:
+
+- Configuración segura de variables de entorno
+- Ejecución con Docker Compose
+- Acceso a la base de datos y PGAdmin
+- Solución de problemas comunes
+- Consideraciones de seguridad
+
+## Instalación Manual
 
 1. Clonar el repositorio:
 

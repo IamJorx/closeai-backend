@@ -22,6 +22,10 @@ class Settings(BaseSettings):
     POSTGRES_DB: str = os.getenv("POSTGRES_DB", "closeai")
     POSTGRES_PORT: str = os.getenv("POSTGRES_PORT", "5432")
     DATABASE_URI: Optional[PostgresDsn] = None
+    
+    # PGAdmin
+    PGADMIN_EMAIL: str = os.getenv("PGADMIN_EMAIL", "admin@example.com")
+    PGADMIN_PASSWORD: str = os.getenv("PGADMIN_PASSWORD", "admin_password")
 
     @field_validator("DATABASE_URI", mode="before")
     def assemble_db_connection(cls, v: Optional[str], values) -> str:
