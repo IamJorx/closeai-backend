@@ -1,0 +1,46 @@
+# Archivos de entorno y configuración
+.env
+.env.local
+.env.*.local
+
+# Archivos de configuración con credenciales
+docker-compose.yml
+# No ignorar el archivo de ejemplo
+!docker-compose.example.yml
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Archivos de base de datos local
+*.sqlite
+*.db
+
+# Logs
+logs/
+*.log
+
+# Archivos temporales
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de distribución
+dist/
+build/
+*.egg-info/
+
+# Archivos de cobertura y pruebas
+.coverage
+htmlcov/
+.pytest_cache/
