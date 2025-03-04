@@ -33,26 +33,6 @@ async def upload_file(
         )
 
 
-@router.get("/{archivo_id}", response_model=ArchivoWithTransacciones)
-async def get_archivo(
-    archivo_id: int,
-    db: AsyncSession = Depends(get_db)
-):
-    """
-    Obtiene un archivo con sus transacciones.
-    """
-    archivo_service = ArchivoService(db)
-    archivo = await archivo_service.get_archivo_with_transacciones(archivo_id)
-    
-    if not archivo:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Archivo con ID {archivo_id} no encontrado"
-        )
-    
-    return archivo
-
-
 @router.get("/comparar-excel/")
 async def comparar_excel(
     archivo_id_1: int,
@@ -77,4 +57,24 @@ async def comparar_excel(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error al comparar archivos: {str(e)}"
-        ) 
+        )
+
+
+@router.get("/{archivo_id}", response_model=ArchivoWithTransacciones)
+async def get_archivo(
+    archivo_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Obtiene un archivo con sus transacciones.
+    """
+    archivo_service = ArchivoService(db)
+    archivo = await archivo_service.get_archivo_with_transacciones(archivo_id)
+    
+    if not archivo:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Archivo con ID {archivo_id} no encontrado"
+        )
+    
+    return archivo 
