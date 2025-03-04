@@ -20,6 +20,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Endpoint de health check
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
 # Incluir rutas de la API
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
